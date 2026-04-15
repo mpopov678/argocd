@@ -15,7 +15,7 @@ spec:
     - monitoring
   endpoints:
   - port: envoy-metrics
-    interval: 10
+    interval: 10s
     honorLabels: true
     path: /metrics
   targetLabels:

@@ -14,7 +14,7 @@ spec:
     - kube-system
   endpoints:
   - port: metrics
-    interval: 10
+    interval: 10s
     honorLabels: true
     path: /metrics
   targetLabels:

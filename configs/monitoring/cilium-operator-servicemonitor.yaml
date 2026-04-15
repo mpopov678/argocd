@@ -1,16 +1,14 @@
+# https://github.com/cilium/cilium/tree/main/install/kubernetes/cilium/templates
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: cilium-operator
-    app.kubernetes.io/part-of: cilium
-  name: cilium-operator
+  name: cilium-operator-servicemonitor
   namespace: monitoring
 spec:
   endpoints:
   - honorLabels: true
-    interval: 10s
+    interval: 10s # scrape ever 10 seconds
     path: /metrics
     port: metrics
   namespaceSelector:
@@ -21,4 +19,4 @@ spec:
       io.cilium/app: operator
       name: cilium-operator
   targetLabels:
-  - io.cilium/app
+  - io.cilium/app # label to copy onto metrics
